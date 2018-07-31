@@ -14,13 +14,14 @@ Drive engagement, boost clicks and discover your brand with bae.url
 
            <section style="padding-top:3ch">
                 <div class="container-fluid d-flex align-items-center justify-content-center h-100">
-                        <form class="form">
-                            <div class="form-row">
+                        <form class="form" method="post" action="{{URL::to('/create')}}">
+                        <input name="_token" type="hidden" value="{{csrf_token()}}">
+                        <div class="form-row">
                                 <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <input class="form-control form-control-lg text-color input" type="text" placeholder="paste or type in url" autofocus autocomplete="off">
+                                    <input class="form-control form-control-lg text-color input" type="text" name="long_url" placeholder="paste or type in url" autofocus autocomplete="off">
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 mt-2">
-                                    <input class="form-control form-control-lg text-color input" type="text" placeholder="customize url">
+                                    <input class="form-control form-control-lg text-color input" type="text" name="custom_url" placeholder="Customise URL(optional)">
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 align-items-center justify-content-center">
                                     <button type="submit" class="btn btn-lg btn-primary">CUSTOMIZE NOW</button>

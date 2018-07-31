@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('default');
 });
+Route::post('create', 'UrlController@create');
+
+Route::get('text', function () {
+    return 'good';
+});

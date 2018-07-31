@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 
 class UrlController extends Controller
 {
-    /**
+   
+
+/**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -22,9 +24,36 @@ class UrlController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+      $this->validate($request, [
+            'long_url' => 'required',
+        ]);
+
+        // url::create($request->all());
+
+        //creating an object of model for data collections
+        $url = new url;
+        //generating 6 digits random character to be used in the URL
+        $id = ID_Gen::quickRandom();
+        // Collecting data from the form
+        $long_url = $request->input('long_url');
+        //Validating URL the user entered
+        $validate_url = URL_Filter::validate_url($long_url);
+        if ($validate_url==true){
+          $new_url = 'http://127.0.0.1:8000/'.$id;
+          $url -> new_url = $new_url;
+          $url -> long_url = $long_url;
+
+          $url->save();
+          \Session::flash('flash_message','URL Shortened and Saved ');
+          return view('default')->with('new_url',$new_url);
+
+        }
+        else{
+          return view('dirt');
+        }
+
     }
 
     /**
