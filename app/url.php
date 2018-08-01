@@ -12,7 +12,7 @@ class url extends Model
    * @var array
    */
   protected $fillable = [
-      'new_url', 'long_url',
+    'long_url', 'new_url', 
   ];
   
   /**

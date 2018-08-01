@@ -30,7 +30,10 @@ Drive engagement, boost clicks and discover your brand with bae.url
                         </form>
         
                     </div>
-           </section>
+           </section><br>
+           @if (isset($new_url))
+           <center><div><p>This is your shortened url <a href="{{ $new_url }}" target="_blank">{{ $new_url }}</a> </p></div></center>
+           @endif
 
             <!--Section: Best Features-->
             <section id="best-features" class="text-center">

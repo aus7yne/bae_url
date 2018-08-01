@@ -14,8 +14,7 @@
 Route::get('/', function () {
     return view('default');
 });
+//request to shorten url
 Route::post('create', 'UrlController@create');
-
-Route::get('text', function () {
-    return 'good';
-});
+//request to access url that is shortened
+Route::get('/{id}', 'UrlController@show');
